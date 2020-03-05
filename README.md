@@ -19,7 +19,9 @@ pna_sys.m : The system of impulsive Ordinary Differential Equations (PN/A model)
 
 performance_init.m : Initialise two parameter space to calculate performance metrics (Hydraulic Retention Time and Nitrogen removal efficiency) in the admissable operating region
 
-pna_sys_perf.m : Calculation of performance metrics in selected parameter space. Plots a contourmap of the resulting values
+ODE_performance_grid.m : Calculation of performance metrics in selected parameter space. Plots a contourmap of the resulting values
+
+pna_sys_perf.m : Impulsive system ODE solver for performance metrics
 
 ImpulseA.m : Calculation of the impulsive map, identical to the XPP code (Impulse.ode) but here used to solve the system until quasi steady-state to determine the system performance
 
