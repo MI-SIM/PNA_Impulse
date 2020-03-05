@@ -1,0 +1,43 @@
+# PN/A system as Impulsive model
+
+mua = m1*(s1/(ka1+s1))
+mun = m2*(s2/(kn2+s2))
+muo1 = (so2/(ko1+so2))
+muo2 = (so2/(ko2+so2))
+muaa = p3*(s1/(ka3+s1))
+muna = (s2/(kn3+s2))
+AMX = p3/m3
+
+ds1/dt = d1*(aIN-s1) - ((1/y1)+in1)*mua*muo1*x1 - in2*mun*muo2*x2 - ((1/y3)+in3)*muaa*muna*AMX
+ds2/dt = -d1*s2 + mua*muo1*x1/y1 - mun*muo2*x2/y2 -((1/y3)+(1/1.14))*muaa*muna*AMX
+ds3/dt = -d1*s3 + mun*muo2*x2/y2 + (1/1.14)*muaa*muna*AMX
+ds4/dt = -d1*s4 +(2/y3)*muaa*muna*AMX
+dx1/dt = -d2*x1 + mua*muo1*x1 - b1*x1
+dx2/dt = -d2*x2 + mun*muo2*x2 - b2*x2
+
+
+# Parameters
+par m1 = 0.3, y1 = 0.18, ka1 = 2.4
+par ko1 = 0.6, in1 = 0.083, m2 = 0.34
+par y2 = 0.08, kn2 = 0.5, ko2 = 0.4
+par in2 = 0.083, p3 = 6.88, y3 = 0.17
+par ka3 = 0.03, kn3 = 0.005, in3 = 0.058
+par b1 = 0.05*m1, b2 = 0.05*m2, aIN = 20
+par m3 = 0.017, d1 = 24/5.9, d2 = 1/24.5
+par so2=0.15
+
+# Defining initial conditions (not necessary)
+init s1=2
+init s2=0
+init s3=1
+init s4=17
+init x1=5
+init x2=0
+
+# Options
+@ METH=stiff, tol=1e-9, bound=10000
+@ maxstor=100000,xlo=0,ylo=0,xhi=1000,yhi=4
+@ xp=t,yp=x1,total=1000,dt=.001, npr=1000, nmax=10000
+@ dsmax=0.005,dsmin=.000001
+
+done
