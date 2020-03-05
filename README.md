@@ -30,7 +30,9 @@ RADAUsolver.m : Third-party numerical solver for stiff problems (Runge-Kutte fir
 *Bifurcation curve data generated using Matlab's curve fitting toolbox to identify branch points (transcritical bifurcation) for scaling performance metric plots*
 
 fit_model1.mat : DO vs. rAMX
+
 fit_model2.mat : DO vs fWAS
+
 fit_model3.mat : rAMX vs fWAS
 
 
